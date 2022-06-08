@@ -1,7 +1,6 @@
 package elpisor.wollypro.jewel.service;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Service;
 import elpisor.wollypro.jewel.dao.JewelRepository;
 import elpisor.wollypro.jewel.dto.DatePeriodDto;
 import elpisor.wollypro.jewel.dto.JewelDto;
+import elpisor.wollypro.jewel.dto.JewelPicDto;
 import elpisor.wollypro.jewel.dto.NewJewelDto;
 import elpisor.wollypro.jewel.dto.PriceRangeDto;
 import elpisor.wollypro.jewel.dto.UpdatePriceDto;
@@ -32,16 +32,18 @@ public class JewelServiceImpl implements JewelService {
 	}
 
 	@Override
-	public JewelDto addPicture(String id, List<String> urls) {
+	public JewelDto addPicture(String id, JewelPicDto jewelPicDto) {
 		Jewel jewel = jewelRepository.findById(id).orElseThrow(() -> new JewelNotFoundException(id));
-		jewel.addUrl(urls);
+		jewel.addUrl(jewelPicDto.getUrls());
+		jewelRepository.save(jewel);
 		return modelMapper.map(jewel, JewelDto.class);
 	}
 
 	@Override
-	public JewelDto deletePicture(String id, List<String> urls) {
+	public JewelDto deletePicture(String id, JewelPicDto jewelPicDto) {
 		Jewel jewel = jewelRepository.findById(id).orElseThrow(() -> new JewelNotFoundException(id));
-		jewel.deleteUrl(urls);
+		jewel.deleteUrl(jewelPicDto.getUrls());
+		jewelRepository.save(jewel);
 		return modelMapper.map(jewel, JewelDto.class);
 	}
 

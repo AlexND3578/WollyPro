@@ -1,7 +1,5 @@
 package elpisor.wollypro.jewel.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import elpisor.wollypro.jewel.dto.DatePeriodDto;
 import elpisor.wollypro.jewel.dto.JewelDto;
+import elpisor.wollypro.jewel.dto.JewelPicDto;
 import elpisor.wollypro.jewel.dto.NewJewelDto;
 import elpisor.wollypro.jewel.dto.PriceRangeDto;
 import elpisor.wollypro.jewel.dto.UpdatePriceDto;
@@ -32,13 +31,13 @@ public class JewelController {
 	}
 	
 	@PostMapping("/jewel/{id}/urls/newPicture")
-	public JewelDto addJewelPic(@PathVariable String id, @RequestBody List<String> urls) {
-		return jewelService.addPicture(id, urls);
+	public JewelDto addJewelPic(@PathVariable String id, @RequestBody JewelPicDto jewelPicDto) {
+		return jewelService.addPicture(id, jewelPicDto);
 	}
 	
 	@DeleteMapping("/jewel/{id}/urls/deletePicture")
-	public JewelDto deleteJewelPic(@PathVariable String id, @RequestBody List<String> urls) {
-		return jewelService.deletePicture(id, urls);
+	public JewelDto deleteJewelPic(@PathVariable String id, @RequestBody JewelPicDto jewelPicDto) {
+		return jewelService.deletePicture(id, jewelPicDto);
 	}
 	
 	@DeleteMapping("/jewel/{id}")

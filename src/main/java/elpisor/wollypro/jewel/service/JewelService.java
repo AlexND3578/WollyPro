@@ -1,9 +1,8 @@
 package elpisor.wollypro.jewel.service;
 
-import java.util.List;
-
 import elpisor.wollypro.jewel.dto.DatePeriodDto;
 import elpisor.wollypro.jewel.dto.JewelDto;
+import elpisor.wollypro.jewel.dto.JewelPicDto;
 import elpisor.wollypro.jewel.dto.NewJewelDto;
 import elpisor.wollypro.jewel.dto.PriceRangeDto;
 import elpisor.wollypro.jewel.dto.UpdatePriceDto;
@@ -12,9 +11,9 @@ import elpisor.wollypro.jewel.dto.UpdateTitleDto;
 public interface JewelService {
 	JewelDto addJewel(NewJewelDto newJewel);
 	
-	JewelDto addPicture(String id, List<String> urls);
+	JewelDto addPicture(String id, JewelPicDto jewelPicDto);
 	
-	JewelDto deletePicture(String id, List<String> urls);
+	JewelDto deletePicture(String id, JewelPicDto jewelPicDto);
 	
 	JewelDto deleteJewel(String id);
 	

@@ -36,13 +36,13 @@ public class Jewel {
 	}
 
 	public boolean addUrl(List<String> list) {
-		Set<String> urlSet = new HashSet<>(list);
-		return option.addAll(urlSet);
+		Set<String> UrlsSet = new HashSet<>(list);
+		return urls.addAll(UrlsSet);
 	}
 
 	public boolean deleteUrl(List<String> list) {
-		Set<String> urlSet = new HashSet<>(list);
-		return option.removeAll(urlSet);
+		Set<String> UrlsSet = new HashSet<>(list);
+		return urls.removeAll(UrlsSet);
 	}
 
 	public boolean deleteOption(List<String> list) {

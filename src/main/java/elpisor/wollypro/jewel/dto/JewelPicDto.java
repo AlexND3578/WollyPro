@@ -1,6 +1,6 @@
 package elpisor.wollypro.jewel.dto;
 
-import java.util.Set;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,5 +8,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JewelPicDto {
-	Set<String> urls;
+	List<String> urls;
 }

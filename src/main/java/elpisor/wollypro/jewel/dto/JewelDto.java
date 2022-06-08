@@ -2,7 +2,7 @@ package elpisor.wollypro.jewel.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -20,12 +20,12 @@ public class JewelDto {
 	String title;
 	String type;
 	@Singular
-	List<String> option;
+	Set<String> option;
 	String seller;
 	String description;
 	BigDecimal price;
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	LocalDateTime dateCreated;
 	@Singular
-	List<String> urls;
+	Set<String> urls;
 }
